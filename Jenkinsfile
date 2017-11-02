@@ -1,8 +1,7 @@
 //Este job foi cadastrado no Jenkins através do arquivo de inicialização: 150-job-hello.groovy
 pipeline {
 	//O agente slave foi cadastrado no Jenkins através do arquivo de inicialização: 005-set-kubernetes.groovy
-	agent {label "slave"}
-
+	agent any
 	environment {
 		//NEXUS_REPOSITORY Hardcoded. O Nexus inicia com esse repositório.//TODO: Criar uma variável de ambiente
 		NEXUS_REPOSITORY   = "devops"
@@ -15,7 +14,7 @@ pipeline {
 		//SONARQUBE_ENDPOINT Definida no arquivo de inicialização do Jenkins: 010-environment-variables.groovy
 		SONARQUBE_ENDPOINT = "${SONARQUBE_HTTP_ENDPOINT}"
 
-		GO_APP_PATH        = "${env.HOME}/go/src/bitbucket.org/gracig"
+		GO_APP_PATH        = "${env.HOME}/go/src/github.com/gracig"
 		APP_NAME           = "cdrc"
 		APP_VERSION        = "1.0.0"
 		GO_APP_FULLPATH    = "${GO_APP_PATH}/${APP_NAME}"
