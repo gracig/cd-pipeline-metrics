@@ -19,7 +19,6 @@ pipeline {
 		APP_VERSION        = "1.0.0"
 		GO_APP_FULLPATH    = "${GO_APP_PATH}/${APP_NAME}"
 		APP_BIN            = "${APP_NAME}"
-		PATH               = "${env.PATH}:/usr/local/go/bin"
 	}
 
 	stages {
@@ -32,6 +31,7 @@ pipeline {
 			steps {
 				echo 'Prepara ambiente go e compila a ferramenta'
 				sh '''
+					export PATH=$PATH:/usr/local/go/bin
 					mkdir -p $GO_APP_PATH
 					ln -s `pwd` $GO_APP_FULLPATH
 					cd $GO_APP_FULLPATH
