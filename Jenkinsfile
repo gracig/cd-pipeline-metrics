@@ -33,6 +33,7 @@ pipeline {
 				sh '''
 					export PATH=$PATH:/usr/local/go/bin
 					mkdir -p $GO_APP_PATH
+					rm -rf $GO_APP_FULLPATH
 					ln -s `pwd` $GO_APP_FULLPATH
 					cd $GO_APP_FULLPATH
 					VERSION=$APP_VERSION TOOLNAME=$APP_BIN make
