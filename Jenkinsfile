@@ -19,6 +19,7 @@ pipeline {
 		APP_VERSION        = "1.0.0"
 		GO_APP_FULLPATH    = "${GO_APP_PATH}/${APP_NAME}"
 		APP_BIN            = "${APP_NAME}"
+		PATH               = "${env.PATH}:/usr/local/go/bin"
 	}
 
 	stages {
